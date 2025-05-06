@@ -22,7 +22,7 @@ spring:
       path: /h2-console
 
 jwt:
-  secret: "<Base64-encoded-secret>"
+  secret: "PEJhc2U2NC1lbmNvZGVkLXNlY3JldD4=PEJhc2U2NC1lbmNvZGVkLXNlY3JldD4=PEJhc2U2NC1lbmNvZGVkLXNlY3JldD4="
   expiration: 60 # Access Token ??(?)
 
 logging:

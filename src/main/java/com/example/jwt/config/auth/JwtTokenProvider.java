@@ -25,7 +25,7 @@ public class JwtTokenProvider {
     private static final Logger log = LoggerFactory.getLogger(JwtTokenProvider.class);
     private static final String ROLE_CLAIM = "role";
     private static final String REFRESH_ROLE = "REFRESH";
-    private static final long REFRESH_TOKEN_EXPIRATION_MS = 1000L * 60 * 60 * 24 * 7;
+    public static final long REFRESH_TOKEN_EXPIRATION_MS = 1000L * 60 * 60 * 24 * 7;
 
     @Value("${jwt.secret}")
     private String secretKeyEncoded;
