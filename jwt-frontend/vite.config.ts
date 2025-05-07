@@ -1,10 +1,11 @@
 import { defineConfig } from 'vite';
 
+import react from '@vitejs/plugin-react';
+
 export default defineConfig({
-  resolve: {
-    alias: {
-      // '@rollup/rollup-win32-x64-msvc' 요청을 rollup 패키지로 매핑
-      '@rollup/rollup-win32-x64-msvc': 'rollup'
-    }
+  plugins: [react()],
+  server: {
+    // SPA history mode를 위한 기본 fallback
+    fs: { strict: true }
   }
 });
