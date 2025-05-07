@@ -94,7 +94,7 @@ public class JwtTokenProvider {
     public boolean validateToken(String token) {
         try {
             Jwts.parser()
-                    .decryptWith((getSecretKey()))
+                    .verifyWith((getSecretKey()))
                     .build()
                     .parseSignedClaims(token);
             return true;
@@ -125,7 +125,7 @@ public class JwtTokenProvider {
 
     private Claims getClaims(String token) {
         return Jwts.parser()
-                .decryptWith(getSecretKey())
+                .verifyWith(getSecretKey())
                 .build()
                 .parseSignedClaims(token)
                 .getPayload();
