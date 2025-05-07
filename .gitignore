@@ -35,3 +35,13 @@ out/
 
 ### VS Code ###
 .vscode/
+
+# ============================
+# React (jwt-frontend/) Ignore
+# ============================
+/jwt-frontend/node_modules/
+/jwt-frontend/build/
+/jwt-frontend/.env
+/jwt-frontend/.env.local
+/jwt-frontend/.DS_Store
+/jwt-frontend/.vscode
