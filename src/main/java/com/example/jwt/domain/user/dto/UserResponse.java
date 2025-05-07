@@ -1,4 +1,4 @@
-package com.example.jwt.domain.user;
+package com.example.jwt.domain.user.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Set;

@@ -177,27 +177,4 @@ class AuthControllerTest {
                 .andExpect(jsonPath("$.message").value("OK"));
     }
 
-    @Test
-    @DisplayName("현재 사용자 정보 조회 성공 테스트")
-    void me_success() throws Exception {
-        // given
-        User user = User.builder()
-                .id(1L)
-                .email("test@example.com")
-                .password("encoded_password")
-                .roles(Set.of("ROLE_USER"))
-                .build();
-
-        CustomUserDetails userDetails = new CustomUserDetails(user);
-
-        // when & then
-        mockMvc.perform(get("/api/auth/me")
-                        .with(user(userDetails)))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.code").value("SUCCESS"))
-                .andExpect(jsonPath("$.message").value("OK"))
-                .andExpect(jsonPath("$.data.id").value(1))
-                .andExpect(jsonPath("$.data.email").value("test@example.com"))
-                .andExpect(jsonPath("$.data.roles[0]").value("ROLE_USER"));
-    }
 }

@@ -1,11 +1,7 @@
 package com.example.jwt.controller;
 
-import com.example.jwt.config.CustomUserDetails;
-import com.example.jwt.domain.user.UserResponse;
-import com.example.jwt.domain.user.entity.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import jakarta.validation.Valid;
 import com.example.jwt.common.ApiResponse;
@@ -38,15 +34,6 @@ public class AuthController {
     public ResponseEntity<ApiResponse<Void>> logout(@RequestParam String email) {
         authService.logout(email);
         return ResponseEntity.ok(ApiResponse.success());
-    }
-
-    @GetMapping("/me")
-    public ResponseEntity<ApiResponse<UserResponse>> me(
-            @AuthenticationPrincipal CustomUserDetails principal) {
-        User user = principal.getUser();
-        UserResponse dto = new UserResponse(
-                user.getId(), user.getEmail(), user.getRoles());
-        return ResponseEntity.ok(ApiResponse.success(dto));
     }
 
 }
