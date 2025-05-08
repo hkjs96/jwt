@@ -46,4 +46,4 @@ out/
 /jwt-frontend/.DS_Store
 /jwt-frontend/.vscode
 
- .env
+.env
