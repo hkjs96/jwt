@@ -3,6 +3,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Profile from './pages/Profile';
 import Home from './pages/Home';
+import OAuth2Redirect from './pages/OAuth2Redirect';
 import PrivateRoute from './components/PrivateRoute';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           element={<PrivateRoute><Profile /></PrivateRoute>}
         />
         <Route path="*" element={<Navigate to="/" />} />
+        <Route path="/oauth2/redirect" element={<OAuth2Redirect />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,6 +1,7 @@
 import React from 'react';
 import AuthForm from '../components/AuthForm';
 
+
 const Signup: React.FC = () => (
   <div>
     <h2>Signup</h2>
