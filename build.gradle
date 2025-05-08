@@ -41,6 +41,8 @@ dependencies {
 	// Swagger/OpenAPI
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
 
+	implementation 'me.paulschwarz:spring-dotenv:2.5.4'
+
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
