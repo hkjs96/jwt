@@ -21,4 +21,11 @@ public class GlobalExceptionHandler {
                 .status(500)
                 .body(ApiResponse.error("INTERNAL_ERROR", ex.getMessage()));
     }
+
+    @ExceptionHandler(OAuthServiceException.class)
+    public ResponseEntity<ApiResponse<Void>> handleOAuthException(OAuthServiceException ex) {
+        return ResponseEntity
+                .status(502)
+                .body(ApiResponse.error("OAUTH_SERVICE_ERROR", ex.getMessage()));
+    }
 }

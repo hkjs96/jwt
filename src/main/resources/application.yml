@@ -1,6 +1,25 @@
+app:
+  base-url: http://localhost:8080
+
+
 spring:
   application:
     name: jwt
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            #${GOOGLE_CLIENT_ID}
+            client-id: 461607784844-29nmnmupc3h7q4nk41p3304uuj6scj3o.apps.googleusercontent.com
+            #${GOOGLE_CLIENT_SECRET}
+            client-secret: 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
+            # 프론트 콜백 경로 - ${VITE_FRONTEND_URL}
+            redirect-uri: "localhost:5173/oauth2/redirect"
+            scope:
+              - openid
+              - profile
+              - email
   datasource:
     url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     driver-class-name: org.h2.Driver
