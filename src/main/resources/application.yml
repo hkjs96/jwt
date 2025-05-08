@@ -1,10 +1,8 @@
-app:
-  base-url: http://localhost:8080
-
-
 spring:
   application:
     name: jwt
+  config:
+    import: optional:file:.env[.properties]  # .env import
   security:
     oauth2:
       client:
@@ -14,8 +12,8 @@ spring:
             client-id: ${GOOGLE_CLIENT_ID}
             #${GOOGLE_CLIENT_SECRET}
             client-secret: ${GOOGLE_CLIENT_SECRET}
-            # 프론트 콜백 경로 - ${VITE_FRONTEND_URL}
-            redirect-uri: localhost:5173/oauth2/redirect
+            # 프론트 콜백 경로 - ${VITE_FRONTEND_URL} # Add http://
+            redirect-uri: http://localhost:5173/oauth2/redirect
             scope:
               - openid
               - profile
