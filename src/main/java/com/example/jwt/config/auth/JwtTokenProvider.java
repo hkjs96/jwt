@@ -1,5 +1,6 @@
 package com.example.jwt.config.auth;
 
+import com.example.jwt.domain.auth.dto.TokenResponse;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.JwtException;
@@ -129,5 +130,15 @@ public class JwtTokenProvider {
                 .build()
                 .parseSignedClaims(token)
                 .getPayload();
+    }
+
+    /**
+     * Access+Refresh 토큰 생성 및 응답 DTO 반환
+     */
+    public TokenResponse generateTokens(String email, String role) {
+        String accessToken = createAccessToken(email, role);
+        String refreshToken = createRefreshToken(email);
+        long expiresIn = (getExpirationDate(accessToken).getTime() - System.currentTimeMillis()) / 1000;
+        return new TokenResponse(accessToken, refreshToken, expiresIn);
     }
 }
